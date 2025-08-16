@@ -1,0 +1,23 @@
+{
+  "name": "namaste-react04",
+  "version": "1.0.0",
+  "description": "MyReact",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RushiPatil99/NamasteReact04.git"
+  },
+  "author": "Rushikesh",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
