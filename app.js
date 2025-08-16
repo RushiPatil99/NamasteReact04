@@ -35,10 +35,19 @@ const HeaderComponent = () => (
     </div>
   </div>
 );
+
 const RestaurantCard = (props) => {
   // console.log(props);
   // Destructuring
   const { resData } = props;
+  const {
+    cloudinaryImageId,
+    name,
+    cuisines,
+    avgRating,
+    costForTwo,
+    sla: { deliveryTime },
+  } = resData;
   return (
     <div className="res-card">
       <img
@@ -46,14 +55,14 @@ const RestaurantCard = (props) => {
         alt="res-img"
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.cloudinaryImageId
+          cloudinaryImageId
         }
       ></img>
-      <h3>{resData.name}</h3>
-      <h4>{resData.cuisines.join(", ")}</h4>
-      <h4>{resData.avgRating} stars</h4>
-      <h4>{resData.costForTwo}</h4>
-      <h4>{resData.sla.deliveryTime} Minutes</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating} stars</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{deliveryTime} Minutes</h4>
     </div>
   );
 };
@@ -473,36 +482,49 @@ const resList = [
     ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
   },
   {
-    id: "352791",
-    name: "Grameen Kulfi",
-    cloudinaryImageId:
-      "RX_THUMBNAIL/IMAGES/VENDOR/2025/5/16/74dd7e20-7278-44bf-84f4-e79cad39ca67_352791.jpg",
-    locality: "8th Block",
+    id: "718430",
+    name: "The Pizza Bakery - Wood Fired Sourdough",
+    cloudinaryImageId: "0335dd45be555d0a4187255e57d2ca88",
+    locality: "BTM Layout",
     areaName: "Koramangala",
-    costForTwo: "₹120 for two",
-    cuisines: ["Ice Cream", "Desserts"],
-    avgRating: 4.8,
-    veg: true,
-    parentId: "12175",
-    avgRatingString: "4.8",
-    totalRatingsString: "911",
+    costForTwo: "₹700 for two",
+    cuisines: [
+      "Pizzas",
+      "Pastas",
+      "Italian",
+      "Desserts",
+      "Continental",
+      "Beverages",
+    ],
+    avgRating: 4.5,
+    parentId: "522292",
+    avgRatingString: "4.5",
+    totalRatingsString: "2.6K+",
     sla: {
-      deliveryTime: 15,
+      deliveryTime: 21,
       lastMileTravel: 1.6,
       serviceability: "SERVICEABLE",
-      slaString: "15-20 mins",
+      slaString: "20-25 mins",
       lastMileTravelString: "1.6 km",
       iconType: "ICON_TYPE_EMPTY",
     },
     availability: {
-      nextCloseTime: "2025-08-15 23:00:00",
+      nextCloseTime: "2025-08-16 23:30:00",
       opened: true,
     },
     badges: {
       imageBadges: [
         {
-          imageId: "v1695133679/badges/Pure_Veg111.png",
-          description: "pureveg",
+          imageId: "android/static-assets/icons/big_rx.png",
+          description: "bolt!",
+        },
+        {
+          imageId: "Rxawards/_CATEGORY-Pizza.png",
+          description: "Delivery!",
+        },
+        {
+          imageId: "newg.png",
+          description: "Gourmet",
         },
       ],
     },
@@ -514,8 +536,20 @@ const resList = [
           badgeObject: [
             {
               attributes: {
-                description: "pureveg",
-                imageId: "v1695133679/badges/Pure_Veg111.png",
+                description: "bolt!",
+                imageId: "android/static-assets/icons/big_rx.png",
+              },
+            },
+            {
+              attributes: {
+                description: "Delivery!",
+                imageId: "Rxawards/_CATEGORY-Pizza.png",
+              },
+            },
+            {
+              attributes: {
+                description: "Gourmet",
+                imageId: "newg.png",
               },
             },
           ],
@@ -525,8 +559,8 @@ const resList = [
       },
     },
     aggregatedDiscountInfoV3: {
-      header: "ITEMS",
-      subHeader: "AT ₹109",
+      header: "40% OFF",
+      subHeader: "UPTO ₹80",
       discountCalloutInfo: {
         message: "Free Delivery",
         logoCtx: {
@@ -552,65 +586,110 @@ const resList = [
     ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
   },
   {
-    id: "352792",
-    name: "Burger House",
-    cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/12/burger-house.jpg",
-    locality: "HSR Layout",
-    areaName: "Sector 2",
+    id: "390057",
+    name: "NH1 Bowls - Highway To North",
+    cloudinaryImageId:
+      "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/8/b1e9f652-dc8d-4789-9710-6485ec06846e_390057.jpg",
+    locality: "6th Block",
+    areaName: "Koramangala",
     costForTwo: "₹250 for two",
-    cuisines: ["Burgers", "Fast Food", "Beverages"],
-    avgRating: 4.2,
-    veg: false,
-    parentId: "13220",
-    avgRatingString: "4.2",
-    totalRatingsString: "1,520",
+    cuisines: ["North Indian", "Punjabi", "Home Food"],
+    avgRating: 4.6,
+    parentId: "22452",
+    avgRatingString: "4.6",
+    totalRatingsString: "1.3K+",
     sla: {
-      deliveryTime: 28,
-      lastMileTravel: 2.4,
+      deliveryTime: 25,
+      lastMileTravel: 0.5,
       serviceability: "SERVICEABLE",
-      slaString: "25-30 mins",
-      lastMileTravelString: "2.4 km",
+      slaString: "20-30 mins",
+      lastMileTravelString: "0.5 km",
       iconType: "ICON_TYPE_EMPTY",
     },
     availability: {
-      nextCloseTime: "2025-08-15 23:59:00",
+      nextCloseTime: "2025-08-17 02:00:00",
       opened: true,
     },
-    badges: { imageBadges: [] },
+    badges: {
+      imageBadges: [
+        {
+          imageId: "android/static-assets/icons/big_rx.png",
+          description: "bolt!",
+        },
+      ],
+      textExtendedBadges: [
+        {
+          iconId: "guiltfree/GF_Logo_android_3x",
+          shortDescription: "options available",
+          fontColor: "#7E808C",
+        },
+      ],
+    },
     isOpen: true,
     type: "F",
     badgesV2: {
-      entityBadges: { imageBased: {}, textBased: {}, textExtendedBadges: {} },
+      entityBadges: {
+        imageBased: {
+          badgeObject: [
+            {
+              attributes: {
+                description: "bolt!",
+                imageId: "android/static-assets/icons/big_rx.png",
+              },
+            },
+          ],
+        },
+        textBased: {},
+        textExtendedBadges: {
+          badgeObject: [
+            {
+              attributes: {
+                description: "",
+                fontColor: "#7E808C",
+                iconId: "guiltfree/GF_Logo_android_3x",
+                shortDescription: "options available",
+              },
+            },
+          ],
+        },
+      },
     },
     aggregatedDiscountInfoV3: {
-      header: "20% OFF",
-      subHeader: "UPTO ₹50",
+      header: "ITEMS",
+      subHeader: "AT ₹100",
       discountCalloutInfo: {
         message: "Free Delivery",
-        logoCtx: { logo: "v1655895371/free_delivery_logo_hqipbo.png" },
+        logoCtx: {
+          logo: "v1655895371/free_delivery_logo_hqipbo.png",
+        },
       },
     },
     differentiatedUi: {
       displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-      differentiatedUiMediaDetails: { lottie: {}, video: {} },
+      differentiatedUiMediaDetails: {
+        lottie: {},
+        video: {},
+      },
     },
     reviewsSummary: {},
     displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
     restaurantOfferPresentationInfo: {},
-    externalRatings: { aggregatedRating: { rating: "4.1" } },
+    externalRatings: {
+      aggregatedRating: {
+        rating: "--",
+      },
+    },
     ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
   },
 ];
-
+//not using keys(not acceptable) <<<<< index as key is not recommended <<<< unique id(best practice )
 const BodyComponent = () => (
   <div className="body">
     <div className="search">search</div>
     <div className="res-container">
-      <RestaurantCard resData={resList[0]} />
-      <RestaurantCard resData={resList[1]} />
-      <RestaurantCard resData={resList[2]} />
-      <RestaurantCard resData={resList[3]} />
-      <RestaurantCard resData={resList[4]} />
+      {resList.map((restaurant, index) => (
+        <RestaurantCard key={index} resData={restaurant} />
+      ))}
     </div>
   </div>
 );
