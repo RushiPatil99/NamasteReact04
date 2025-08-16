@@ -1,71 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-/**
- * Header
- * - Logo
- * - Nav Items
- * Body
- * -search
- * -restaurant container
- *     -restaurant card
- *     -img
- *     -name of res, res rating, res cuisine, res delivery time
- * Footer
- * -Copyright
- * -Links
- * -Address
- * -Contact
- */
-const HeaderComponent = () => (
-  <div className="header">
-    <div className="logo-container">
-      <img
-        className="logo"
-        src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
-      />
-    </div>
-    <div className="nav-items">
-      <ul>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact us</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  </div>
-);
-
-const RestaurantCard = (props) => {
-  // console.log(props);
-  // Destructuring
-  const { resData } = props;
-  const {
-    cloudinaryImageId,
-    name,
-    cuisines,
-    avgRating,
-    costForTwo,
-    sla: { deliveryTime },
-  } = resData;
-  return (
-    <div className="res-card">
-      <img
-        className="res-img"
-        alt="res-img"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      ></img>
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} stars</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{deliveryTime} Minutes</h4>
-    </div>
-  );
-};
+import HeaderComponent from "./components/HeaderComponent";
+import BodyComponent from "./components/BodyComponent";
 
 const resList = [
   {
@@ -682,17 +618,6 @@ const resList = [
     ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
   },
 ];
-//not using keys(not acceptable) <<<<< index as key is not recommended <<<< unique id(best practice )
-const BodyComponent = () => (
-  <div className="body">
-    <div className="search">search</div>
-    <div className="res-container">
-      {resList.map((restaurant, index) => (
-        <RestaurantCard key={index} resData={restaurant} />
-      ))}
-    </div>
-  </div>
-);
 
 const AppLayoutComponent = () => (
   <div className="app">
