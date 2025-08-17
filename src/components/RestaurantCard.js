@@ -1,3 +1,5 @@
+import { CDN_URl } from "../utils/constants";
+
 const RestaurantCard = (props) => {
   // console.log(props);
   // Destructuring
@@ -15,10 +17,7 @@ const RestaurantCard = (props) => {
       <img
         className="res-img"
         alt="res-img"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
+        src={CDN_URl + cloudinaryImageId}
       ></img>
       <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
