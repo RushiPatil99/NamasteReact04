@@ -42,3 +42,15 @@ import {component} from "path";
 - React uses reconciliation algorithm also known as react fiber
   -React creates virtual dom whicg is representation of actual dom
   -it's like nested object(Virtual dom)
+
+<button
+className="login-btn"
+onClick={() => {
+setbtnNameReact(btnNameReact === "Login" ? "Logout" : "Login");
+}}
+
+as soon as we call this setbtnNameReact by clicking the button it will update the setbtnNameReact
+value/reference and render the header component once again ND IT WILL find the div in older veriosn and newer version and it will see only button is getting changed
+this is called as dif algorithm or reconciliation process everybody talking about
+this is why react is fast
+that's why we need state variables

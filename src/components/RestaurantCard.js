@@ -4,14 +4,10 @@ const RestaurantCard = (props) => {
   // console.log(props);
   // Destructuring
   const { resData } = props;
-  const {
-    cloudinaryImageId,
-    name,
-    cuisines,
-    avgRating,
-    costForTwo,
-    sla: { deliveryTime },
-  } = resData;
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+    resData.info ? resData.info : resData; // fallback for mockData
+
+  const deliveryTime = sla?.deliveryTime;
   return (
     <div className="res-card">
       <img
